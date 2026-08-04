@@ -22,120 +22,189 @@ body {
     color: white;
 }
 
+
 header {
     text-align: center;
     padding: 40px 15px;
     background: #181818;
 }
 
+
 header h1 {
-    margin: 0;
-    font-size: clamp(30px, 8vw, 45px);
+    margin:0;
+    font-size: clamp(30px,8vw,45px);
 }
 
+
 header p {
-    color: #aaa;
+    color:#aaa;
 }
+
 
 
 .container {
-    max-width: 700px;
-    width: 100%;
-    margin: auto;
-    padding: 15px;
+    max-width:700px;
+    width:100%;
+    margin:auto;
+    padding:15px;
 }
+
 
 
 .card,
 .upgrade {
-    background: #1c1c1c;
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 15px;
+
+    background:#1c1c1c;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:15px;
+
 }
+
 
 
 .price {
-    color: #00ff88;
-    font-size: 34px;
-    font-weight: bold;
+
+    color:#00ff88;
+    font-size:34px;
+    font-weight:bold;
+
 }
 
-
-button {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 12px;
-    background: #00ff88;
-    color: black;
-    font-size: 17px;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-
-button:hover {
-    opacity: .85;
-}
-
-
-ul {
-    color: #ddd;
-    line-height: 1.8;
-}
-
-
-.viewer {
-    display: none;
-}
-
-
-.viewer.active {
-    display: block;
-}
-
-
-model-viewer {
-    width: 100%;
-    height: 450px;
-    background: #181818;
-    border-radius: 15px;
-}
-
-
-.upgrades {
-    display: grid;
-    gap: 15px;
-}
 
 
 .small-price {
-    color: #00ff88;
-    font-size: 25px;
-    font-weight: bold;
+
+    color:#00ff88;
+    font-size:25px;
+    font-weight:bold;
+
 }
+
+
+
+button {
+
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:12px;
+
+    background:#00ff88;
+    color:black;
+
+    font-size:17px;
+    font-weight:bold;
+
+    margin-top:10px;
+
+}
+
+
+
+button:hover {
+
+    opacity:.85;
+
+}
+
+
+
+ul {
+
+    color:#ddd;
+    line-height:1.8;
+
+}
+
+
+
+.upgrades {
+
+    display:grid;
+    gap:15px;
+
+}
+
+
+
+/* FULLSCREEN VIEWER */
+
+.viewer {
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:999;
+
+    background:#111;
+
+    padding:15px;
+
+}
+
+
+
+.viewer.active {
+
+    display:block;
+
+}
+
+
+
+.viewer h2 {
+
+    text-align:center;
+
+}
+
+
+
+model-viewer {
+
+    width:100%;
+    height:85vh;
+
+    background:#181818;
+
+    border-radius:15px;
+
+}
+
 
 
 .order {
-    text-align: center;
+
+    text-align:center;
+
 }
+
 
 
 footer {
-    text-align: center;
-    padding: 25px;
-    color: #777;
+
+    text-align:center;
+    padding:25px;
+    color:#777;
+
 }
+
 
 
 @media(max-width:500px){
 
     model-viewer {
-        height: 350px;
+
+        height:80vh;
+
     }
 
 }
+
 
 </style>
 
@@ -143,6 +212,7 @@ footer {
 
 
 <body>
+
 
 
 <header>
@@ -155,11 +225,9 @@ footer {
 
 
 
-
 <div class="container">
 
 
-<!-- Base Model -->
 
 <div class="card">
 
@@ -167,29 +235,34 @@ footer {
 
 <div class="price">$15</div>
 
+
 <ul>
+
 <li>Grey/Black setup</li>
 <li>Rigid frame</li>
 <li>Stock battery</li>
 <li>Supermoto wheels</li>
 <li>Fully assembled</li>
+
 </ul>
+
 
 </div>
 
 
 
 
-<!-- 3D Viewer -->
 
-<div id="viewerBox" class="card viewer">
+<!-- FULLSCREEN 3D VIEWER -->
+
+<div id="viewerBox" class="viewer">
+
 
 <h2>3D Preview</h2>
 
 
 <model-viewer
 id="model"
-src="./rwhtc25t7t34/motocutz.glb"
 camera-controls
 auto-rotate
 shadow-intensity="1"
@@ -198,11 +271,15 @@ environment-image="neutral">
 </model-viewer>
 
 
+
 <button onclick="closeViewer()">
 Close Viewer
 </button>
 
+
+
 </div>
+
 
 
 
@@ -211,7 +288,10 @@ Close Viewer
 <h2>Upgrades</h2>
 
 
+
 <div class="upgrades">
+
+
 
 
 
@@ -230,7 +310,10 @@ Close Viewer
 View 3D
 </button>
 
+
 </div>
+
+
 
 
 
@@ -243,7 +326,7 @@ View 3D
 <p>Detailed battery upgrade</p>
 
 <div class="small-price">
-+$2
++$3
 </div>
 
 
@@ -251,7 +334,10 @@ View 3D
 View 3D
 </button>
 
+
 </div>
+
+
 
 
 
@@ -272,12 +358,38 @@ View 3D
 View 3D
 </button>
 
+
+</div>
+
+
+
+
+
+
+
+<div class="upgrade">
+
+<h3>ODI Grips</h3>
+
+<p>Detailed ODI grip upgrade</p>
+
+<div class="small-price">
++$1
+</div>
+
+
+<button onclick="changeModel('odi.glb')">
+View 3D
+</button>
+
+
 </div>
 
 
 
 
 </div>
+
 
 
 
@@ -289,14 +401,28 @@ View 3D
 <h2>Full Build</h2>
 
 <div class="price">
-$20
+$22
 </div>
+
 
 <p>
-All upgrades included
+All upgrades included:
 </p>
 
+
+<ul>
+
+<li>MotoCutz Plate</li>
+<li>CHI Battery</li>
+<li>Right Footbrake</li>
+<li>ODI Grips</li>
+
+</ul>
+
+
 </div>
+
+
 
 
 
@@ -310,11 +436,15 @@ All upgrades included
 Talk to me IRL to order
 </p>
 
+
+</div>
+
+
+
+
 </div>
 
 
-
-</div>
 
 
 
@@ -330,21 +460,41 @@ Surron Light Bee Models © 2026
 
 
 
+
+
 <script>
 
+
 const viewerBox = document.getElementById("viewerBox");
+
 const model = document.getElementById("model");
 
 
-function openViewer(){
+
+
+
+function changeModel(file){
+
+
+    // Force reload so models don't stay cached
+
+    model.removeAttribute("src");
+
+
+    setTimeout(() => {
+
+        model.src = "./rwhtc25t7t34/" + file;
+
+    }, 100);
+
+
 
     viewerBox.classList.add("active");
 
-    viewerBox.scrollIntoView({
-        behavior:"smooth"
-    });
 
 }
+
+
 
 
 
@@ -352,20 +502,16 @@ function closeViewer(){
 
     viewerBox.classList.remove("active");
 
+
+    model.removeAttribute("src");
+
+
 }
 
-
-
-function changeModel(file){
-
-    openViewer();
-
-    model.src = "./rwhtc25t7t34/" + file;
-
-}
 
 
 </script>
+
 
 
 </body>
