@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Surron Light Bee Models</title>
+
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 <style>
 
 * {
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-    cursor: none;
 }
 
 body {
@@ -19,22 +21,6 @@ body {
     background: #111;
     color: white;
 }
-
-
-/* Custom Cursor */
-.cursor {
-    position: fixed;
-    width: 18px;
-    height: 18px;
-    background: #00ff88;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-}
-
-
-/* Header */
 
 header {
     text-align: center;
@@ -52,8 +38,6 @@ header p {
 }
 
 
-/* Main */
-
 .container {
     max-width: 700px;
     width: 100%;
@@ -68,22 +52,6 @@ header p {
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 15px;
-    transition: transform .2s ease;
-}
-
-
-.card:hover,
-.upgrade:hover {
-    transform: translateY(-5px);
-}
-
-
-h2 {
-    font-size: 24px;
-}
-
-h3 {
-    margin-top: 0;
 }
 
 
@@ -94,31 +62,63 @@ h3 {
 }
 
 
-ul {
-    color: #ddd;
-    line-height: 1.8;
-    padding-left: 20px;
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: #00ff88;
+    color: black;
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 10px;
 }
 
 
-/* Upgrades */
+button:hover {
+    opacity: .85;
+}
+
+
+ul {
+    color: #ddd;
+    line-height: 1.8;
+}
+
+
+.viewer {
+    display: none;
+}
+
+
+.viewer.active {
+    display: block;
+}
+
+
+model-viewer {
+    width: 100%;
+    height: 450px;
+    background: #181818;
+    border-radius: 15px;
+}
+
 
 .upgrades {
     display: grid;
-    grid-template-columns: 1fr;
     gap: 15px;
 }
 
 
-/* Order */
+.small-price {
+    color: #00ff88;
+    font-size: 25px;
+    font-weight: bold;
+}
+
 
 .order {
     text-align: center;
-}
-
-.order p {
-    color: #ddd;
-    font-size: 18px;
 }
 
 
@@ -129,36 +129,10 @@ footer {
 }
 
 
-/* Mobile */
-
 @media(max-width:500px){
 
-    .card,
-    .upgrade {
-        padding: 18px;
-    }
-
-    .price {
-        font-size: 36px;
-    }
-
-    h2 {
-        font-size: 22px;
-    }
-
-}
-
-
-/* Phones use normal touch cursor */
-
-@media(max-width:700px){
-
-    * {
-        cursor: auto;
-    }
-
-    .cursor {
-        display:none;
+    model-viewer {
+        height: 350px;
     }
 
 }
@@ -171,18 +145,21 @@ footer {
 <body>
 
 
-<div class="cursor"></div>
-
-
 <header>
-    <h1>Surron Light Bee Models</h1>
-    <p>3D Printed Mini Light Bee Models</p>
+
+<h1>Surron Light Bee Models</h1>
+
+<p>3D Printed Mini Light Bee Models</p>
+
 </header>
+
 
 
 
 <div class="container">
 
+
+<!-- Base Model -->
 
 <div class="card">
 
@@ -202,34 +179,108 @@ footer {
 
 
 
+
+<!-- 3D Viewer -->
+
+<div id="viewerBox" class="card viewer">
+
+<h2>3D Preview</h2>
+
+
+<model-viewer
+id="model"
+src="./rwhtc25t7t34/motocutz.glb"
+camera-controls
+auto-rotate
+shadow-intensity="1"
+exposure="1"
+environment-image="neutral">
+</model-viewer>
+
+
+<button onclick="closeViewer()">
+Close Viewer
+</button>
+
+</div>
+
+
+
+
+
 <h2>Upgrades</h2>
 
 
 <div class="upgrades">
 
 
+
 <div class="upgrade">
+
 <h3>MotoCutz Plate</h3>
-<p>More realistic Surron styling</p>
-<div class="price">+$2</div>
+
+<p>More realistic styling</p>
+
+<div class="small-price">
++$2
 </div>
 
 
+<button onclick="changeModel('motocutz.glb')">
+View 3D
+</button>
+
+</div>
+
+
+
+
+
 <div class="upgrade">
+
 <h3>CHI Battery</h3>
+
 <p>Detailed battery upgrade</p>
-<div class="price">+$2</div>
+
+<div class="small-price">
++$2
 </div>
+
+
+<button onclick="changeModel('chi.glb')">
+View 3D
+</button>
+
+</div>
+
+
+
 
 
 <div class="upgrade">
+
 <h3>Right Footbrake</h3>
-<p>Add extra detail to your model</p>
-<div class="price">+$1</div>
+
+<p>Add extra detail</p>
+
+<div class="small-price">
++$1
 </div>
 
 
+<button onclick="changeModel('footbrake.glb')">
+View 3D
+</button>
+
 </div>
+
+
+
+
+</div>
+
+
+
 
 
 
@@ -237,19 +288,16 @@ footer {
 
 <h2>Full Build</h2>
 
-<div class="price">$20</div>
+<div class="price">
+$20
+</div>
 
 <p>
-Includes all upgrades:
+All upgrades included
 </p>
 
-<ul>
-<li>MotoCutz Plate</li>
-<li>CHI Battery</li>
-<li>Right Footbrake</li>
-</ul>
-
 </div>
+
 
 
 
@@ -259,30 +307,63 @@ Includes all upgrades:
 <h2>Order</h2>
 
 <p>
-Talk to me irl to order or dm me on tiktok
+Talk to me IRL to order
 </p>
 
 </div>
 
 
+
 </div>
 
 
 
+
+
 <footer>
+
 Surron Light Bee Models © 2026
+
 </footer>
+
+
 
 
 
 <script>
 
-const cursor = document.querySelector(".cursor");
+const viewerBox = document.getElementById("viewerBox");
+const model = document.getElementById("model");
 
-document.addEventListener("mousemove", e => {
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
-});
+
+function openViewer(){
+
+    viewerBox.classList.add("active");
+
+    viewerBox.scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+
+function closeViewer(){
+
+    viewerBox.classList.remove("active");
+
+}
+
+
+
+function changeModel(file){
+
+    openViewer();
+
+    model.src = "./rwhtc25t7t34/" + file;
+
+}
+
 
 </script>
 
