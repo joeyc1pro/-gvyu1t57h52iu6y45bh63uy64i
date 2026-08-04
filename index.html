@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Surron Light Bee Models</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    cursor: none;
+}
+
+body {
+    margin: 0;
+    background: #111;
+    color: white;
+}
+
+
+/* Custom Cursor */
+.cursor {
+    position: fixed;
+    width: 18px;
+    height: 18px;
+    background: #00ff88;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+}
+
+
+/* Header */
+
+header {
+    text-align: center;
+    padding: 40px 15px;
+    background: #181818;
+}
+
+header h1 {
+    margin: 0;
+    font-size: clamp(30px, 8vw, 45px);
+}
+
+header p {
+    color: #aaa;
+}
+
+
+/* Main */
+
+.container {
+    max-width: 700px;
+    width: 100%;
+    margin: auto;
+    padding: 15px;
+}
+
+
+.card,
+.upgrade {
+    background: #1c1c1c;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: transform .2s ease;
+}
+
+
+.card:hover,
+.upgrade:hover {
+    transform: translateY(-5px);
+}
+
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    margin-top: 0;
+}
+
+
+.price {
+    color: #00ff88;
+    font-size: 34px;
+    font-weight: bold;
+}
+
+
+ul {
+    color: #ddd;
+    line-height: 1.8;
+    padding-left: 20px;
+}
+
+
+/* Upgrades */
+
+.upgrades {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+
+/* Order */
+
+.order {
+    text-align: center;
+}
+
+.order p {
+    color: #ddd;
+    font-size: 18px;
+}
+
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #777;
+}
+
+
+/* Mobile */
+
+@media(max-width:500px){
+
+    .card,
+    .upgrade {
+        padding: 18px;
+    }
+
+    .price {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+}
+
+
+/* Phones use normal touch cursor */
+
+@media(max-width:700px){
+
+    * {
+        cursor: auto;
+    }
+
+    .cursor {
+        display:none;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="cursor"></div>
+
+
+<header>
+    <h1>Surron Light Bee Models</h1>
+    <p>3D Printed Mini Light Bee Models</p>
+</header>
+
+
+
+<div class="container">
+
+
+<div class="card">
+
+<h2>Base Model</h2>
+
+<div class="price">$15</div>
+
+<ul>
+<li>Grey/Black setup</li>
+<li>Rigid frame</li>
+<li>Stock battery</li>
+<li>Supermoto wheels</li>
+<li>Fully assembled</li>
+</ul>
+
+</div>
+
+
+
+<h2>Upgrades</h2>
+
+
+<div class="upgrades">
+
+
+<div class="upgrade">
+<h3>MotoCutz Plate</h3>
+<p>More realistic Surron styling</p>
+<div class="price">+$2</div>
+</div>
+
+
+<div class="upgrade">
+<h3>CHI Battery</h3>
+<p>Detailed battery upgrade</p>
+<div class="price">+$2</div>
+</div>
+
+
+<div class="upgrade">
+<h3>Right Footbrake</h3>
+<p>Add extra detail to your model</p>
+<div class="price">+$1</div>
+</div>
+
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Full Build</h2>
+
+<div class="price">$20</div>
+
+<p>
+Includes all upgrades:
+</p>
+
+<ul>
+<li>MotoCutz Plate</li>
+<li>CHI Battery</li>
+<li>Right Footbrake</li>
+</ul>
+
+</div>
+
+
+
+
+<div class="card order">
+
+<h2>Order</h2>
+
+<p>
+Talk to me IRL to order
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<footer>
+Surron Light Bee Models © 2026
+</footer>
+
+
+
+<script>
+
+const cursor = document.querySelector(".cursor");
+
+document.addEventListener("mousemove", e => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+});
+
+</script>
+
+
+</body>
+</html>
